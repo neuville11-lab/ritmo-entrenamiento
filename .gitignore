@@ -4,6 +4,7 @@
 !.env.example
 .dev.vars
 .dev.vars.*
+dist/config.js
 
 # Site tooling
 .sites-runtime/

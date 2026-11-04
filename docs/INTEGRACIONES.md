@@ -10,9 +10,10 @@ Para conectar el proyecto:
 2. Activa Google como proveedor de autenticación en Supabase Auth.
 3. En Google Cloud, registra el cliente OAuth y añade la URL de callback que indica el panel de Supabase.
 4. Configura el origen y las URL de retorno autorizadas para el dominio de Ritmo.
-5. Añade las políticas RLS antes de guardar datos de usuarios.
+5. Ejecuta `supabase/migrations/0001_core.sql` en el editor SQL de Supabase. Las tablas incluyen políticas RLS que restringen cada fila al usuario autenticado.
+6. Copia `dist/config.example.js` a `dist/config.js` y completa `supabaseUrl` y la clave publicable. `dist/config.js` está excluido de Git.
 
-El navegador puede conocer la URL del proyecto y la clave publicable de Supabase. La clave `service_role`, claves OAuth privadas y tokens de Polar nunca deben llegar al navegador ni al repositorio.
+El navegador puede conocer la URL del proyecto y la clave publicable de Supabase. La clave `service_role`, claves OAuth privadas y tokens de Polar nunca deben llegar al navegador ni al repositorio. Ritmo no migra los datos locales a la nube automáticamente; se añadirá una acción explícita de importación.
 
 ## Polar Flow
 
