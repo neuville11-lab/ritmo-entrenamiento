@@ -1,0 +1,17 @@
+# Local secrets and development settings
+.env
+.env.*
+!.env.example
+.dev.vars
+.dev.vars.*
+
+# Site tooling
+.sites-runtime/
+.wrangler/
+.vinext/
+node_modules/
+outputs/
+
+# Local artifacts
+*.log
+*.tar.gz
