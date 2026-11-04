@@ -4,7 +4,7 @@ Ritmo ayuda a corredores populares a reunir sus entrenamientos y entenderlos jun
 
 ## Estado
 
-La web publicada es una versión privada para pruebas. Permite registrar, editar, borrar e importar sesiones TCX/GPX/CSV; analizar TCX con un botón usando frecuencia cardiaca, vueltas, ritmo por kilómetro y otras métricas presentes en cada archivo, junto al contexto diario guardado; asociar sueño, hidratos, hidratación y clima a la sesión elegida desde Progreso; consultar clima histórico; crear y ajustar un calendario; y exportar JSON. El análisis actual usa reglas locales, no IA. Por ahora los datos viven en el navegador. La conexión de cuentas con Google/Supabase está preparada, pero requiere configurar un proyecto. La sincronización automática de Polar y el análisis con IA aún están pendientes.
+La web publicada es una versión privada para pruebas. Permite registrar, editar, borrar e importar sesiones TCX/GPX/CSV; analizar TCX con un botón usando frecuencia cardiaca, vueltas, ritmo por kilómetro y otras métricas presentes en cada archivo, y ver las curvas de FC y ritmo con zonas configurables; asociar sueño, hidratos, hidratación y clima a la sesión elegida desde Progreso; consultar clima histórico; crear y ajustar un calendario; y exportar JSON. El análisis actual usa reglas locales, no IA. Por ahora los datos viven en el navegador. La conexión de cuentas con Google/Supabase está preparada, pero requiere configurar un proyecto. La sincronización automática de Polar y el análisis con IA aún están pendientes.
 
 ## Próximas fases
 
