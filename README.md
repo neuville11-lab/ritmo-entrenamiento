@@ -19,6 +19,8 @@ La web publicada es una primera versión privada. La interfaz permite explorar l
 
 La web inicial se sirve desde `dist/`. Las integraciones externas requieren credenciales de desarrollo y configuración en sus respectivos servicios; no se deben incluir claves privadas en el navegador ni subir archivos `.env` a GitHub.
 
+Los pasos para configurar Google/Supabase y Polar están en [`docs/INTEGRACIONES.md`](docs/INTEGRACIONES.md).
+
 ## Datos
 
 Los registros actuales son de demostración y viven en el navegador de la persona que los introduce. No usar esta versión para almacenar información real de salud o entrenamiento.
