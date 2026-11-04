@@ -8,7 +8,7 @@
    Pulsa **Analizar** en esa sesión para ver ritmo, frecuencia cardiaca, vueltas y ritmo por kilómetro, y cuando estén incluidos: cadencia, desnivel, calorías, traza GPS y contexto diario. Si añades el sueño, alimentación o clima después, pulsa **Analizar** otra vez. Si la sesión TCX se importó antes de esta actualización, vuelve a importarla para añadir sus métricas.
    Para ver los colores de las zonas, configura tu FC máxima y opcionalmente cuatro límites de ritmo en **Ajustes → Zonas para las gráficas**. Los límites solo se guardan en el navegador actual.
 4. En Polar Flow web, abre una sesión, elige **Exportar** y descarga TCX, GPX o CSV. Vuelve a Ritmo y selecciona **Importar TCX, GPX o CSV**.
-5. En **Progreso**, selecciona el entrenamiento para cargar su fecha y registrar sueño, energía, hidratos (categoría y gramos), líquidos y clima histórico. Los datos se guardan por día y se comparten con las sesiones de esa fecha. También puedes elegir un día de descanso.
+5. En **Progreso**, selecciona el entrenamiento para cargar su fecha y registrar sueño, energía, hidratos (categoría y gramos), líquidos y clima de la fecha. Para los últimos siete días se usa el modelo reciente de Open-Meteo; para fechas anteriores, su reanálisis histórico. Los datos se guardan por día y se comparten con las sesiones de esa fecha. También puedes elegir un día de descanso.
 6. En **Mi plan**, introduce fecha de carrera, distancia, días disponibles y kilómetros semanales. Marca una sesión como completada o indica que no puedes hacerla para leer la sugerencia de prueba.
 7. En **Ajustes**, exporta tus datos como JSON o borra la información de prueba del navegador.
 

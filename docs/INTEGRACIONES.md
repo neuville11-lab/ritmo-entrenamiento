@@ -28,7 +28,7 @@ La integración requiere una aplicación de Polar AccessLink. El titular debe cr
 
 La versión actual solo usa almacenamiento local del navegador y datos de ejemplo. Este esquema aún no está conectado a cuentas ni a una base de datos.
 
-La primera prueba consulta la API de geocodificación y el histórico meteorológico de [Open-Meteo](https://open-meteo.com/en/docs/historical-weather-api) con la ciudad, fecha y hora que introduzcas. La ubicación usada es la celda meteorológica más cercana, no una medición del recorrido.
+La primera prueba consulta la API de geocodificación de [Open-Meteo](https://open-meteo.com/en/docs/geocoding-api) con la ciudad introducida. Para los últimos siete días usa la API de pronóstico con `past_days`, que devuelve el modelo reciente archivado; para fechas anteriores consulta la API de reanálisis histórico. Los datos recientes son estimaciones de modelo, no mediciones de una estación en el recorrido. La ERA5 usada por el histórico estándar puede tardar unos cinco días en actualizarse.
 
 ## Referencias oficiales
 
