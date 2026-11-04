@@ -32,12 +32,17 @@ create table if not exists public.daily_context (
   sleep_minutes integer check (sleep_minutes is null or sleep_minutes between 0 and 1440),
   energy text check (energy is null or energy in ('very_low', 'low', 'normal', 'good', 'very_good')),
   carbohydrate_intake text check (carbohydrate_intake is null or carbohydrate_intake in ('low', 'usual', 'higher', 'carb_load')),
+  carbohydrate_grams numeric(7,2) check (carbohydrate_grams is null or carbohydrate_grams between 0 and 2000),
+  hydration_liters numeric(5,2) check (hydration_liters is null or hydration_liters between 0 and 50),
   weather_summary text,
   notes text not null default '',
   created_at timestamptz not null default now(),
   updated_at timestamptz not null default now(),
   primary key (owner_id, day)
 );
+
+alter table public.daily_context add column if not exists carbohydrate_grams numeric(7,2) check (carbohydrate_grams is null or carbohydrate_grams between 0 and 2000);
+alter table public.daily_context add column if not exists hydration_liters numeric(5,2) check (hydration_liters is null or hydration_liters between 0 and 50);
 
 create table if not exists public.training_plans (
   id uuid primary key default gen_random_uuid(),
