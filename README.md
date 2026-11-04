@@ -4,22 +4,23 @@ Ritmo ayuda a corredores populares a reunir sus entrenamientos y entenderlos jun
 
 ## Estado
 
-La web publicada es una primera versión privada. La interfaz permite explorar las secciones de entrenamientos, progreso, plan y ajustes. Los formularios guardan datos en el navegador. La integración de cuentas y base de datos con Supabase está preparada en el código y requiere completar la configuración del proyecto; Google todavía no está activado. Polar y el análisis con IA están pendientes.
+La web publicada es una versión privada para pruebas. Permite registrar, editar, borrar e importar sesiones TCX/GPX/CSV; guardar contexto diario; consultar clima histórico; crear y ajustar un calendario; analizar datos con reglas locales; y exportar JSON. Por ahora los datos viven en el navegador. La conexión de cuentas con Google/Supabase está preparada, pero requiere configurar un proyecto. La sincronización automática de Polar y el análisis con IA aún están pendientes.
 
 ## Próximas fases
 
-1. Configurar el proyecto Supabase, Google OAuth, ejecutar la migración y aplicar `dist/config.example.js`.
-2. Conectar registros de entrenamientos, contexto diario y planes a la base de datos multiusuario.
-3. Registrar Ritmo en Polar AccessLink y sincronizar actividades mediante OAuth, guardando credenciales únicamente en el servidor.
-4. Añadir clima histórico y análisis explicables del entrenamiento y la recuperación.
-5. Crear planes originales ajustables por fecha de carrera, experiencia y disponibilidad; evaluar la respuesta antes de mover sesiones omitidas.
-6. Preparar pagos y planes cuando producto, condiciones y modelo de soporte estén definidos.
+1. Configurar el proyecto Supabase, Google OAuth, ejecutar la migración y completar `dist/config.js`.
+2. Registrar Ritmo en Polar AccessLink y sincronizar actividades mediante OAuth, guardando credenciales únicamente en el servidor.
+3. Conectar un modelo de IA para complementar el análisis explicable del modo local.
+4. Ampliar las reglas del entrenador y los criterios para ajustar sesiones omitidas.
+5. Preparar pagos y planes cuando producto, condiciones y modelo de soporte estén definidos.
 
 ## Desarrollo
 
 La web inicial se sirve desde `dist/`. Las integraciones externas requieren credenciales de desarrollo y configuración en sus respectivos servicios; no se deben incluir claves privadas en el navegador ni subir archivos `.env` a GitHub.
 
 Los pasos para configurar Google/Supabase y Polar están en [`docs/INTEGRACIONES.md`](docs/INTEGRACIONES.md).
+
+El recorrido de prueba está descrito en [`docs/PRIMERA_PRUEBA.md`](docs/PRIMERA_PRUEBA.md).
 
 ## Datos
 

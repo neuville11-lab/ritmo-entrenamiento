@@ -28,7 +28,10 @@ La integración requiere una aplicación de Polar AccessLink. El titular debe cr
 
 La versión actual solo usa almacenamiento local del navegador y datos de ejemplo. Este esquema aún no está conectado a cuentas ni a una base de datos.
 
+La primera prueba consulta la API de geocodificación y el histórico meteorológico de [Open-Meteo](https://open-meteo.com/en/docs/historical-weather-api) con la ciudad, fecha y hora que introduzcas. La ubicación usada es la celda meteorológica más cercana, no una medición del recorrido.
+
 ## Referencias oficiales
 
 - [Google como proveedor de Supabase Auth](https://supabase.com/docs/guides/auth/social-login/auth-google)
 - [Polar AccessLink API](https://www.polar.com/accesslink-api/)
+- [Exportar sesiones desde Polar Flow](https://support.polar.com/us-en/export-training-sessions-flow)

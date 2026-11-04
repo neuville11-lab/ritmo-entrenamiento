@@ -23,6 +23,8 @@ create index if not exists workouts_owner_started_idx
 create table if not exists public.daily_context (
   owner_id uuid not null references auth.users(id) on delete cascade,
   day date not null,
+  training_time time,
+  location_label text,
   sleep_minutes integer check (sleep_minutes is null or sleep_minutes between 0 and 1440),
   energy text check (energy is null or energy in ('very_low', 'low', 'normal', 'good', 'very_good')),
   carbohydrate_intake text check (carbohydrate_intake is null or carbohydrate_intake in ('low', 'usual', 'higher', 'carb_load')),
