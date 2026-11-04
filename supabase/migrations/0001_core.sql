@@ -34,6 +34,7 @@ create table if not exists public.daily_context (
   carbohydrate_intake text check (carbohydrate_intake is null or carbohydrate_intake in ('low', 'usual', 'higher', 'carb_load')),
   carbohydrate_grams numeric(7,2) check (carbohydrate_grams is null or carbohydrate_grams between 0 and 2000),
   hydration_liters numeric(5,2) check (hydration_liters is null or hydration_liters between 0 and 50),
+  record_source text not null default 'manual' check (record_source in ('manual', 'demo')),
   weather_summary text,
   notes text not null default '',
   created_at timestamptz not null default now(),
@@ -43,6 +44,7 @@ create table if not exists public.daily_context (
 
 alter table public.daily_context add column if not exists carbohydrate_grams numeric(7,2) check (carbohydrate_grams is null or carbohydrate_grams between 0 and 2000);
 alter table public.daily_context add column if not exists hydration_liters numeric(5,2) check (hydration_liters is null or hydration_liters between 0 and 50);
+alter table public.daily_context add column if not exists record_source text not null default 'manual' check (record_source in ('manual', 'demo'));
 
 create table if not exists public.training_plans (
   id uuid primary key default gen_random_uuid(),
