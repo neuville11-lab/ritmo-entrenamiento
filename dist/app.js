@@ -133,17 +133,19 @@
     $('logData').onclick = event => { event.preventDefault(); renderPage('Progreso'); };
   }
   function renderPlanBanner() {
-    const plan = state.plan;
+    let plan = state.plan;
     if (!plan) { $('planBannerTitle').textContent = 'Cada sesión cuenta.'; $('planBannerText').textContent = 'Crea un calendario para tu próxima carrera.'; $('seePlan').textContent = 'Crear mi plan →'; $('nextSessionTitle').textContent = 'Aún no hay sesiones'; $('nextSessionDetail').textContent = 'Elige tu carrera para empezar.'; $('sidePlanTitle').textContent='Sin carrera objetivo'; $('sidePlanSummary').innerHTML='Crea tu calendario de prueba<br>desde “Mi plan”.'; $('sidePlanProgress').style.width='0%'; return; }
+    const savedGoal=plan.targetTime||plan.goal||'',canRepair=(!Array.isArray(plan.sessions)||plan.sessions.length===0)&&plan.race&&parseTargetTime(savedGoal)&&Number(plan.weekly)>=20&&(plan.method==='Hanson'||plan.distance==='Maratón'||plan.distance==='marathon'),raceDay=new Date(`${plan.race}T12:00:00`),today=new Date(`${todayISO()}T12:00:00`);
+    if(canRepair&&(raceDay-today)/86400000>=42){const rebuilt=buildSchedule({race:plan.race,targetTime:savedGoal,weekly:Number(plan.weekly),method:'Hanson'});rebuilt.id=plan.id||rebuilt.id;state.plan=rebuilt;plan=rebuilt;localStorage.setItem(activeKey,JSON.stringify(state));if(supabase&&user)void syncRemote();}
     $('planBannerTitle').textContent = `${plan.distance || 'Tu carrera'} · ${formatDate(plan.race)}`;
     $('planBannerText').textContent = `${plan.sessions?.length || 0} sesiones preparadas · ${plan.days} días por semana`;
     $('seePlan').textContent = 'Ver mi calendario →';
     $('sidePlanTitle').textContent=`${plan.distance||'Carrera'} · ${formatDate(plan.race)}`;
     $('sidePlanSummary').innerHTML=`${plan.weeks||0} semanas · ${plan.sessions?.length||0} sesiones<br>Objetivo · ${esc(plan.goal||'Sin indicar')}`;
     const completed=(plan.sessions||[]).filter(s=>s.status==='completed').length;$('sidePlanProgress').style.width=`${plan.sessions?.length?Math.round(completed/plan.sessions.length*100):0}%`;
-    const next = (plan.sessions || []).filter(s => s.status === 'planned').sort((a,b) => a.date.localeCompare(b.date))[0];
-    $('nextSessionTitle').textContent = next?.title || 'Plan completado';
-    $('nextSessionDetail').textContent = next ? `${formatDate(next.date)} · ${next.distance} km` : 'No quedan sesiones pendientes.';
+    const next = (plan.sessions || []).filter(s => s.date>=todayISO()&&!['completed','skipped'].includes(s.status)).sort((a,b) => a.date.localeCompare(b.date))[0];
+    $('nextSessionTitle').textContent = next?.title || (plan.race>=todayISO()?'Carrera objetivo · Maratón':'Sin sesiones pendientes');
+    $('nextSessionDetail').textContent = next ? `${formatDate(next.date)} · ${Number(next.distance||0).toFixed(next.type==='race'?3:1)} km` : plan.race>=todayISO()?`Día de carrera · ${formatDate(plan.race)}`:'Revisa el plan para programar la siguiente sesión.';
   }
   function pageHeader(title, description) { return `<div class="page-title"><h1>${title}</h1><p>${description}</p></div>`; }
   function panel(title, body, sub = '') { return `<article class="panel"><div class="panel-head"><div><h2>${title}</h2>${sub ? `<div class="sub">${sub}</div>` : ''}</div></div>${body}</article>`; }
