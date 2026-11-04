@@ -4,7 +4,7 @@ Ritmo ayuda a corredores populares a reunir sus entrenamientos y entenderlos jun
 
 ## Estado
 
-La web publicada es una versión privada para pruebas. Permite registrar, editar, borrar e importar sesiones TCX/GPX/CSV; guardar contexto diario; consultar clima histórico; crear y ajustar un calendario; analizar datos con reglas locales; y exportar JSON. Por ahora los datos viven en el navegador. La conexión de cuentas con Google/Supabase está preparada, pero requiere configurar un proyecto. La sincronización automática de Polar y el análisis con IA aún están pendientes.
+La web publicada es una versión privada para pruebas. Permite registrar, editar, borrar e importar sesiones TCX/GPX/CSV; analizar una sesión con un botón usando sus datos y el contexto diario guardado; consultar clima histórico; crear y ajustar un calendario; y exportar JSON. El análisis actual usa reglas locales, no IA. Por ahora los datos viven en el navegador. La conexión de cuentas con Google/Supabase está preparada, pero requiere configurar un proyecto. La sincronización automática de Polar y el análisis con IA aún están pendientes.
 
 ## Próximas fases
 
