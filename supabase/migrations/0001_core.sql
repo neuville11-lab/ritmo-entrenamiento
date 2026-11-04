@@ -13,9 +13,13 @@ create table if not exists public.workouts (
   perceived_effort smallint check (perceived_effort is null or perceived_effort between 1 and 10),
   notes text not null default '',
   weather jsonb not null default '{}'::jsonb,
+  imported_metrics jsonb not null default '{}'::jsonb,
   created_at timestamptz not null default now(),
   unique (owner_id, provider, provider_activity_id)
 );
+
+-- Keeps TCX-derived lap summaries, splits and sampled sensor traces when accounts are enabled.
+alter table public.workouts add column if not exists imported_metrics jsonb not null default '{}'::jsonb;
 
 create index if not exists workouts_owner_started_idx
   on public.workouts (owner_id, started_at desc);
